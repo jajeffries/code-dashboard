@@ -2,6 +2,7 @@ require 'TrelloCycleTime'
 
 HMV_BOARD_ID = '5aJf2ZMz'
 ACCESS_TOKEN = ENV['TRELLO_TOKEN']
+puts ACCESS_TOKEN
 
 trello_cycle_time = AgileTrello::TrelloCycleTime.new(
 	public_key: 'e185a8128064891a8961802a3d86b08e',
