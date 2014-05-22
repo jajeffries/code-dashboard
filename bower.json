@@ -1,0 +1,7 @@
+{
+	"name": "code-dashboard",
+	"version": "1.0.0",
+	"dependencies" : {
+		"teamcity-build-status.js" : "1.0.0" 
+	}
+}
