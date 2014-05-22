@@ -3,7 +3,6 @@ task :default => [:dependencies, :test, :commit]
 desc 'Load dependencies with bundler'
 task :dependencies do
 	system "bundle update"
-	system "bower install"
 end
 
 desc 'Run unit tests'
