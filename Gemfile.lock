@@ -48,7 +48,7 @@ GEM
     json (1.8.1)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
-    mime-types (2.2)
+    mime-types (2.3)
     minitest (5.3.4)
     mongo (1.10.1)
       bson (~> 1.10.1)
@@ -108,7 +108,7 @@ GEM
       memoizable (~> 0.4.0)
       naught (~> 1.0)
       simple_oauth (~> 0.2.0)
-    tzinfo (1.1.0)
+    tzinfo (1.2.0)
       thread_safe (~> 0.1)
 
 PLATFORMS
