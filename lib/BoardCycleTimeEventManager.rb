@@ -1,4 +1,9 @@
+require 'TrelloCycleTime'
+
 class BoardCycleTimeEventManager
+	ONE_DAY = 86400
+	SIX_WEEKS = ONE_DAY * 42
+
 	def initialize(board_id, cycle_time_events)
 		@board_id = board_id
 		@cycle_time_events = cycle_time_events
@@ -9,11 +14,14 @@ class BoardCycleTimeEventManager
 	end
 
 	def retrieve
+		today = Time.now
+		measurement_start_date = today - SIX_WEEKS
 		@cycle_time_events.each do |cycle_time_event|
 			average_cycle_time = @trello_cycle_time.get(
 				board_id: @board_id,
 				start_list: cycle_time_event.start_list,
-				end_list: cycle_time_event.end_list
+				end_list: cycle_time_event.end_list,
+				measurement_start_date: measurement_start_date
 			)
   			send_event(cycle_time_event.event_name, { text: average_cycle_time })
 		end
