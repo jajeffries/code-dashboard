@@ -23,7 +23,12 @@ class BoardCycleTimeEventManager
 				end_list: cycle_time_event.end_list,
 				measurement_start_date: measurement_start_date
 			)
-  			send_event(cycle_time_event.event_name, { text: average_cycle_time.mean })
+  			send_event(cycle_time_event.event_name, { 
+  				mean: average_cycle_time.mean, 
+  				standard_deviation: average_cycle_time.standard_deviation,
+  				start_list: cycle_time_event.start_list,
+				end_list: cycle_time_event.end_list
+  			})
 		end
 	end
 end
