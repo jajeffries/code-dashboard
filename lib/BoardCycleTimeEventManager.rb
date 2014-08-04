@@ -1,3 +1,4 @@
+# require_relative '../../trello-cycletime/lib/TrelloCycleTime'
 require 'TrelloCycleTime'
 
 class BoardCycleTimeEventManager
@@ -23,6 +24,7 @@ class BoardCycleTimeEventManager
 				end_list: cycle_time_event.end_list,
 				measurement_start_date: measurement_start_date
 			)
+			puts "Cycle time retreved: #{@board_id} = #{average_cycle_time.mean}"
   			send_event(cycle_time_event.event_name, { 
   				mean: average_cycle_time.mean, 
   				standard_deviation: average_cycle_time.standard_deviation,
