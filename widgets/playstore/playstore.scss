@@ -1,0 +1,42 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #999;
+$title-color:       #000;
+ 
+// ----------------------------------------------------------------------------
+// Widget-comment styles
+// ----------------------------------------------------------------------------
+.widget-playstore { 
+ 
+    background: $background-color;
+ 
+  .title {
+    font-weight: bold;
+    color: $title-color;
+    opacity: .9
+  }
+ 
+  .google-rating-container {
+    div > div {
+      font-size: 24px
+    }
+  }
+ 
+  .google-rating-value {
+    font-size: 76px;
+	color: $title-color;
+    #google-rating-integer-value {
+      font-weight: bold;
+    }
+  }
+ 
+  .google-voters-count {
+    font-size: 1.5em;
+	color: $title-color;
+    #google-voters-count-value {
+      font-weight: bold
+    }
+  }
+ 
+}
