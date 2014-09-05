@@ -4,5 +4,6 @@ class Dashing.Builds extends Dashing.Widget
 		$(@node).find('.build').teamCityBuildStatus({
 			teamcityUrl : 'http://teamcity.dev',
 			projectId : @project,
-			refreshTimeout : 10000
+			refreshTimeout : 10000,
+			projectName: @title
 		});
