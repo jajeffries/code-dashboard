@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------------
 // Sass declarations
 // ----------------------------------------------------------------------------
-$background-color:  #999;
+$background-color:  #e5e5e5;
 $title-color:       #000;
  
 // ----------------------------------------------------------------------------
@@ -9,33 +9,37 @@ $title-color:       #000;
 // ----------------------------------------------------------------------------
 .widget-playstore { 
  
-    background: $background-color;
- 
-  .title {
-    font-weight: bold;
-    color: $title-color;
-    opacity: .9
-  }
- 
-  .google-rating-container {
-    div > div {
-      font-size: 24px
+  vertical-align: inherit !important;
+  background: $background-color;
+  display: block !important;
+  padding: 0 !important;
+  
+  .container {
+    padding: 10px;
+    .name {
+      img {
+        height: 35px;
+        margin-top: -10px;
+      }
+
+      .title {
+        margin-left: 10px;
+        font-size: 1.6em;
+        
+        color: $title-color;
+        opacity: .9
+      }
+      margin-bottom: 5px;
     }
-  }
- 
-  .google-rating-value {
-    font-size: 76px;
-	color: $title-color;
-    #google-rating-integer-value {
-      font-weight: bold;
-    }
-  }
- 
-  .google-voters-count {
-    font-size: 1.5em;
-	color: $title-color;
-    #google-voters-count-value {
-      font-weight: bold
+    .review {
+      background: #FFF;
+      color: #333;
+      .rating {
+        font-size: 1.5em;
+      }
+      .voters {
+        font-size: 0.8em;
+      }
     }
   }
  
