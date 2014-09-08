@@ -1,7 +1,27 @@
-<h1 class="title" data-bind="title"></h1>
-<div class="appstore-rating-container">
-  <div class="appstore-rating-value" data-bind='appstore'></div>
-  <div class="appstore-voters-count" data-bind='appstore'></div>
+<div class="container">
+	<div class="name">
+		<img src="./assets/apple_logo.gif"/><span class="title" data-bind="title"></span>
+	</div>
+	<div class="review">
+		Latest
+		<div class="rating">
+			<span data-bind="last_version.average_rating"></span>
+		</div>
+		<div class="voters">
+			<span data-bind="last_version.voters_count"></span><span> review(s)</span>
+		</div>
+	</div>
+
+	<div class="review">
+		All
+		<div class="rating">
+			<span data-bind="all_versions.average_rating"></span>
+		</div>
+		<div class="voters">
+			<span data-bind="all_versions.voters_count"></span><span> review(s)</span>
+		</div>
+	</div>
 </div>
- 
-<!-- <p class="more-info">All versions average Rating <span class="appstore-all-versions-average-rating" data-bind="appstore"></span> - <span class="appstore-all-versions-voters-count" data-bind="appstore"></span> Votes</p> -->
+
+
+
