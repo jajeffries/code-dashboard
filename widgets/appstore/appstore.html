@@ -1,10 +1,11 @@
 <div class="container">
 
 	<div class="name">
-			<img src="./assets/apple_logo.gif"/>
+			<span class="title" data-bind="title"></span>
+			
 	</div>
-
-	<div class="review">
+<img src="./assets/apple_logo.gif"/>
+	<div class="review" id="latest">
 		
 		Latest
 		<div class="rating">
@@ -16,7 +17,7 @@
 	
 	</div>
 
-	<div class="review">
+	<div class="review" id="all">
 		All
 		<div class="rating">
 			<span data-bind="all_versions.average_rating"></span>

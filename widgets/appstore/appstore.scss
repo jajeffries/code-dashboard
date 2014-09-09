@@ -16,11 +16,12 @@ $title-color:       #000;
   
   .container {
     padding: 10px;
-    .name {
-      img {
+    img {
         height: 35px;
-        margin-top: -10px;
+        margin-bottom: 10px;
       }
+    .name {
+      
         .title {
           margin-left: 10px;
           font-size: 1.6em;

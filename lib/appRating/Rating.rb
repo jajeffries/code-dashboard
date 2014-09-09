@@ -35,6 +35,8 @@ class Rating
     if ( @average_rating )
       if ( @average_rating[1] )
         all_versions[:average_rating] = extract_average_rating(@average_rating[1])
+      else
+        all_versions[:average_rating] = extract_average_rating(@average_rating[0])
       end
     end
  
@@ -42,7 +44,7 @@ class Rating
       if ( @voters_count[1] ) 
         all_versions[:voters_count] = extract_voters_count(@voters_count[1])
       else 
-        puts 'ERROR::RegEx for last version voters count didn\'t match anything'
+        all_versions[:voters_count] = extract_voters_count(@voters_count[0])
       end
     end
 
