@@ -23,7 +23,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     backports (3.6.0)
-    bson (1.11.0)
     buftok (0.2.0)
     builder (3.2.2)
     coffee-script (2.2.0)
@@ -61,8 +60,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     mime-types (1.25.1)
     minitest (5.4.1)
-    mongo (1.11.0)
-      bson (= 1.11.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -135,6 +132,5 @@ DEPENDENCIES
   dashing
   git_repository
   loggly-ruby-client!
-  mongo
   peach
   twitter (>= 5.0.0)
