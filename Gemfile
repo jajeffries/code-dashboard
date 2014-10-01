@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'dashing'
 gem 'TrelloCycleTime'
-#gem 'mongo'
+gem 'mongo'
 ## Remove this if you don't need a twitter widget.
 gem 'twitter', '>= 5.0.0'
 gem 'loggly-ruby-client', :git => 'https://github.com/code-computerlove/loggly-ruby-client'
