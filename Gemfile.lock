@@ -45,6 +45,7 @@ GEM
       thor (~> 0.18.1)
     equalizer (0.0.9)
     eventmachine (1.0.3)
+    eventmachine (1.0.3-x86-mingw32)
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
@@ -133,6 +134,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   TrelloCycleTime
