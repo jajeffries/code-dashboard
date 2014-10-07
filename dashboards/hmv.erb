@@ -1,13 +1,11 @@
 <% content_for :title do %>HMV<% end %>
 <div class="gridster">
   <ul>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="hmv_cycle_time" data-view="Cycletime" data-title="Total Cycle Time"></div>
-    </li>
-    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+    <li class="flips" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div class="hidden" data-id="hmv_cycle_time" data-view="Cycletime" data-title="Total Cycle Time"></div>
       <div data-id="hmv_cycle_time_dev" data-view="Cycletime" data-title="Dev Cycle Time"></div>
     </li>
-    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
       <div data-id="HMV-velocity" data-view="Velocity" data-title="Weekly Velocity"></div>
     </li>
     <li data-row="1" data-col="4" data-sizex="1" data-sizey="2">
@@ -16,6 +14,8 @@
       <div data-id="nusextradiscounts-builds" data-view="Builds" data-title="NUS Discounts" data-project="project30"></div>
       <div data-id="nusextra-builds" data-view="Builds" data-title="NUS extra" data-project="project3"></div>
       <div data-id="nus-builds" data-view="Builds" data-title="NUS Org" data-project="project4"></div>
+      <div data-id="nusextramonitor-builds" data-view="Builds" data-title="NUS extra Monitor" data-project="project35"></div>
+      <div data-id="nusextrawhitelabel-builds" data-view="Builds" data-title="NUS White Label" data-project="project74"></div>
     </li>
   </ul>
 </div>
