@@ -1,11 +1,26 @@
 $background-color:  #0000FF;
-
 $title-color:       rgba(255, 255, 255, 0.7);
-$moreinfo-color:    rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.3);
+$tick-color:        rgba(0, 0, 0, 0.4);
 
 .widget-cycletime {
 
   background-color: $background-color;
+  position: relative;
+
+
+  svg {
+    position: absolute;
+    opacity: 0.4;
+    fill-opacity: 0.7;
+    left: 0px;
+    top: 0px;
+  }
+
+  .title, .value {
+    position: relative;
+    z-index: 99;
+  }
 
   .title {
     color: $title-color;
@@ -13,14 +28,31 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
 
   .more-info {
     color: $moreinfo-color;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 0;
   }
 
-  .updated-at {
-    color: rgba(255, 255, 255, 0.7);
+  .x_tick {
+    position: absolute;
+    bottom: 0;
+    .title {
+      font-size: 20px;
+      color: $tick-color;
+      opacity: 0.5;
+      padding-bottom: 3px;
+    }
   }
 
-
-  &.large h3 {
-    font-size: 65px;
+  .y_ticks {
+    font-size: 20px;
+    fill: $tick-color;
+    fill-opacity: 1;
   }
+
+  .domain {
+    display: none;
+  }
+
 }
+
