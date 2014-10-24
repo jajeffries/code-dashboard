@@ -5,5 +5,6 @@ class Dashing.Builds extends Dashing.Widget
 			teamcityUrl : 'http://teamcity.dev',
 			projectId : @project,
 			refreshTimeout : 10000,
-			projectName: @title
+			projectName: @title,
+			branch : @branch
 		});
