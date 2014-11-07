@@ -7,7 +7,10 @@ CYCLE_TIME_CALCULATION_EVENTS = [
 	'hmv_cycle_time_dev',
 	'apache_cycle_time',
 	'apache_cycle_time_dev',
-	'a_team'
+	'a_team',
+	'302_cycle_time',
+	'302_cycle_time_dev',
+	'302_cycle_time_all'
 ]
 
 MONGO_CONN = ENV['MONGO_CONN']
