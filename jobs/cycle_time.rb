@@ -10,7 +10,10 @@ CYCLE_TIME_CALCULATION_EVENTS = [
 	'a_team',
 	'302_cycle_time',
 	'302_cycle_time_dev',
-	'302_cycle_time_all'
+	'302_cycle_time_all',
+	'amnesty_cycle_time_dev',
+	'amnesty_cycle_time',
+	'amnesty_cycle_time_all'
 ]
 
 MONGO_CONN = ENV['MONGO_CONN']
