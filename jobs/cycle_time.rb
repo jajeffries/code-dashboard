@@ -13,7 +13,9 @@ CYCLE_TIME_CALCULATION_EVENTS = [
 	'302_cycle_time_all',
 	'amnesty_cycle_time_dev',
 	'amnesty_cycle_time',
-	'amnesty_cycle_time_all'
+	'amnesty_cycle_time_all',
+	'peartree_cycle_time',
+	'peartree_cycle_time_dev'
 ]
 
 MONGO_CONN = ENV['MONGO_CONN']
