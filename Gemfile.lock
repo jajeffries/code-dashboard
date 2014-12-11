@@ -70,7 +70,7 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     naught (1.0.0)
-    netrc (0.8.0)
+    netrc (0.10.0)
     oauth (0.4.7)
     peach (0.5.1)
     rack (1.5.2)
