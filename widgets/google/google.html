@@ -25,22 +25,16 @@
 </div>
 
 <script type="text/javascript">
+		
+	var siteValueArray = ['ga:16053949', 'ga:62935300', 'ga:377070'];
+	var siteValue = siteValueArray[Math.floor(Math.random() * siteValueArray.length)];
+	console.log(siteValue);
 	
-	var d = new Date();
-	var n = d.getMinutes();
-	
-	siteValue = 'ga:16053949';
-	
-	console.log(n);
-	
-	if(n >= 0 && n <= 9 || n >= 30 && n <= 39){
-		siteValue = 'ga:16053949';
+	if(siteValue == 'ga:16053949'){
 		document.getElementById("site").innerHTML = "HMV";
-	}else if( n >= 10 && n <= 19 || n >= 40 && n <= 49){
-		siteValue = 'ga:62935300';
+	}else if(siteValue == 'ga:62935300'){
 		document.getElementById("site").innerHTML = "NUS Extra";
-	}else if(n >= 20 && n <= 29 || n >= 50 && n <= 59){
-		siteValue = 'ga:377070';
+	}else if(siteValue == 'ga:377070'){
 		document.getElementById("site").innerHTML = "Code Computerlove";
 	}
 	
