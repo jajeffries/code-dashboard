@@ -23,6 +23,7 @@
 	<div id="chart-three-container" class="chart-three-container" data-bind="google"></div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
 		
 	var siteValueArray = ['ga:16053949', 'ga:62935300', 'ga:377070'];
@@ -68,8 +69,8 @@
 				      width: '100%'
 			      }
 		    }
-		  })
-
+		  });
+		  
 		  var activeUsersContainerTwo = new gapi.analytics.googleCharts.DataChart({
 			  query: {
 				  'ids': siteValue,
@@ -86,8 +87,8 @@
 				      width: '100%'
 			      }
 		    }
-		  })
-
+		  });
+		    
 		  var dataChartOne = new gapi.analytics.googleCharts.DataChart({
 		    query: {
 		          'ids': siteValue,
@@ -100,6 +101,7 @@
 			      options: {
 			        width: '500',
 			        height: '470',
+			        colors: ['#42637B', '#222', '#678EAD'],
 			        pieHole: 0.4,
 			        pieSliceText: 'percentage',
 			        pieStartAngle: 40,
@@ -127,7 +129,8 @@
 			      options: {
 				      title: 'Average loading time by browser',
 			        width: '500px',
-			        height: '500px'
+			        height: '500px',
+					colors: ['#42637B']
 			      }
 		    }
 		  });
@@ -145,6 +148,7 @@
 			      options: {
 					'title': 'Tyhme',
 			        'width': '100%',
+			        colors: ['#42637B', '#222'],
 			        curveType: 'function'
 			      }
 		    }
@@ -160,3 +164,24 @@
 	});
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

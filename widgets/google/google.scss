@@ -10,7 +10,10 @@ body{
 }
 
 #container{
+	width:1250px;
+	margin:0 auto;
 	padding-top:0!important;
+	
 	
 	div{
 		padding:0;
@@ -22,10 +25,12 @@ body{
 /--------------------*/
 
 header{
-    background:#00B1C3;
+    background:#42637B;
     width:100%;
     height:50px;
     color:white;
+    position:absolute;
+    left:0;
 }
 
 header .title{
@@ -46,14 +51,19 @@ header .title{
 /--------------------*/
 
 .chart-container{
-    background:#fff;
-    width:100%;
+    background:transparent;
+    width:1250px;
+    height:800px;
+    margin:60px auto;
 }
-
+.embed-api-auth-container{
+	display:none;
+}
 
 .view-selector-container{
     display:inline-block;
     margin:10px 3% 15px;
+    display:none;
 }
 .view-selector-container table{
     width:200px!important;
@@ -76,14 +86,32 @@ header .title{
  /---Active-users-container---/
 /---------------------------*/
 .active-users-container{
-    background:#FF9333;
-    width:22%;
+    background:#42637B;
+    width:260px;
     height:350px;
     display:inline-block;
-    margin:16px 3% 0 0;
+    margin:16px 10px 0 0;
     float:right;
+    overflow:hidden;
     z-index:-2;
 }
+
+.active-users-container.change{
+	background:red;
+}
+
+.active-users-container:before{
+	content:'Users in the last hour';
+	width:100%;
+	margin:auto;
+	position:relative;
+    top:50px;
+    left:0px;
+    color:white;
+    font-size:20px;
+    font-weight:normal;
+}
+
 .active-users-container .gapi-analytics-data-chart-table-styles-thr:first-child, 
 .active-users-container .gapi-analytics-data-chart-table-styles-td{
     display:none;
@@ -104,33 +132,25 @@ header .title{
     overflow:initial!important;
 }
 .active-users-container td.gapi-analytics-data-chart-table-styles-td.google-visualization-table-td-number{
+
     text-align:center;    
     position:relative;
-    top: 180px;
-    color:white;
-    font-size:25px;
+    top: 190px;
+    color:#42637B;
+    font-size:45px;
     font-weight:bold;
 }
 .active-users-container td.gapi-analytics-data-chart-table-styles-td.google-visualization-table-td-number:before{
-    content:'h';
+    content:' ';
     width:100%;
+    height:300px;
+    background:#e7e7e7;
     position:absolute;
-    top:-230px;
+    top:-80px;
     left:0px;
-    color:#FFA34C;
-    font-size:400px;
-    font-weight:normal;
     z-index:-1;
 }
-.active-users-container td.gapi-analytics-data-chart-table-styles-td.google-visualization-table-td-number:after{
-    content:'Users in the last hour';
-    width:100%;
-    position:absolute;
-    bottom:100px;
-    left:0px;
-    font-size:20px;
-    font-weight:normal;
-}
+
   /*---------------------------/
  /------------End-------------/
 /---------------------------*/
@@ -140,14 +160,27 @@ header .title{
  /---Active-users-container-two---/
 /-------------------------------*/
 .active-users-container-two{
-    background:#A14571;
-    width:22%;
+    background:#42637B;
+    width:260px;
     height:350px;
     display:inline-block;
-    margin:16px 0 0 3%;
+    margin:16px 0 0 10px;
     float:left;
+    overflow:hidden;
     z-index:-2;
 }
+.active-users-container-two:before{
+	content:'Average server response time';
+	width:100%;
+	margin:auto;
+	position:relative;
+    top:50px;
+    left:0px;
+    color:white;
+    font-size:20px;
+    font-weight:normal;
+}
+
 .active-users-container-two .gapi-analytics-data-chart-table-styles-thr:first-child, 
 .active-users-container-two .gapi-analytics-data-chart-table-styles-td{
     display:none;
@@ -170,31 +203,22 @@ header .title{
 .active-users-container-two td.gapi-analytics-data-chart-table-styles-td.google-visualization-table-td-number{
     text-align:center;    
     position:relative;
-    top: 180px;
-    color:white;
-    font-size:25px;
+    top: 190px;
+    color:#42637B;
+    font-size:45px;
     font-weight:bold;
 }
 .active-users-container-two td.gapi-analytics-data-chart-table-styles-td.google-visualization-table-td-number:before{
-    content:'h';
+    content:' ';
     width:100%;
+    height:300px;
+    background:#e7e7e7;
     position:absolute;
-    top:-230px;
+    top:-80px;
     left:0px;
-    color:#c46b95;
-    font-size:400px;
-    font-weight:normal;
     z-index:-1;
 }
-.active-users-container-two td.gapi-analytics-data-chart-table-styles-td.google-visualization-table-td-number:after{
-    content:'Average server response time';
-    width:100%;
-    position:absolute;
-    bottom:100px;
-    left:0px;
-    font-size:20px;
-    font-weight:normal;
-}
+
   /*---------------------------/
  /------------End-------------/
 /---------------------------*/
@@ -202,11 +226,11 @@ header .title{
 
 .chart-one-container{
     background:white;
-    width:45%;
+    width:600px;
     height:350px;
     display:inline-block;
     float:left;
-    margin:16px 2.4%;
+    margin:16px 54px;
     position:relative;
     border:1px #DBDBDB solid;
     overflow:hidden;
@@ -221,12 +245,13 @@ header .title{
 }
 .chart-one-container div:before{
     content:'Sessions per device';
-    color:black;
+    color:#42637B;
     width:200px;
     position:absolute;
     right:465px;
     top:80px;
     font-size:16px;
+    font-weight:bold;
 }
 
 .chart-two-container{
@@ -235,7 +260,7 @@ header .title{
     height:350px;
     display:inline-block;
     float:right;
-    margin:16px 3% 0 0;
+    margin:16px 10px 0 0;
     padding:0 2%;
     position:relative;
     border:1px #DBDBDB solid;
@@ -251,7 +276,7 @@ header .title{
     height:350px;
     display:inline-block;
     float:left;
-    margin:16px 0 0 3%;
+    margin:16px 0 0 10px;
     padding:0 2%;
     position:relative;
     border:1px #DBDBDB solid;
