@@ -1,0 +1,187 @@
+<script>
+	(function(w,d,s,g,js,fs){
+		  g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+		  js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+		  js.src='https://apis.google.com/js/platform.js';
+		  fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+	}(window,document,'script'));
+</script>	
+
+<header>
+	<h1 id="site"></h1>
+	<div id="embed-api-auth-container" class="embed-api-auth-container" data-bind="google"></div>
+</header>
+
+<div class="chart-container">
+	<div id="view-selector-container" class="view-selector-container" data-bind="google"></div>
+	
+	<div class="spacer"></div>
+	<div id="active-users-container" class="active-users-container" data-bind="google"></div>
+	<div id="active-users-container-two" class="active-users-container-two" data-bind="google"></div>
+	<div id="chart-one-container" class="chart-one-container" data-bind="google"></div>
+	<div id="chart-two-container" class="chart-two-container" data-bind="google"></div>
+	<div id="chart-three-container" class="chart-three-container" data-bind="google"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+		
+	var siteValueArray = ['ga:16053949', 'ga:62935300', 'ga:377070'];
+	var siteValue = siteValueArray[Math.floor(Math.random() * siteValueArray.length)];
+	console.log(siteValue);
+	
+	if(siteValue == 'ga:16053949'){
+		document.getElementById("site").innerHTML = "HMV";
+	}else if(siteValue == 'ga:62935300'){
+		document.getElementById("site").innerHTML = "NUS Extra";
+	}else if(siteValue == 'ga:377070'){
+		document.getElementById("site").innerHTML = "Code Computerlove";
+	}
+	
+	gapi.analytics.ready(function() {
+
+		gapi.analytics.auth.authorize({
+			container: 'embed-api-auth-container',
+			clientid: '662601444485-e1cnmenqhehqnlp160m0ckb8nqj5e0fc.apps.googleusercontent.com'
+		});
+
+		  var viewSelector = new gapi.analytics.ViewSelector({
+		    container: 'view-selector-container'
+		  });
+
+		  viewSelector.execute();
+
+		  var activeUsersContainer = new gapi.analytics.googleCharts.DataChart({
+			  query: {
+			      'ids': siteValue,
+			      'metrics': 'ga:sessions',
+			      'dimensions': 'ga:date,ga:hour',
+			      'max-results': '1',
+			      'sort': '-ga:sessions',
+			      'filters': 'ga:sessions!=0',
+			      'start-date': 'today',
+			      'end-date': 'today'
+		    },
+		    chart: {
+			      container: 'active-users-container',
+			      type: 'TABLE',
+			      options: {
+				      width: '100%'
+			      }
+		    }
+		  });
+		  
+		  var activeUsersContainerTwo = new gapi.analytics.googleCharts.DataChart({
+			  query: {
+				  'ids': siteValue,
+			      'metrics': 'ga:avgServerResponseTime',
+			      'dimensions': 'ga:date,ga:hour',
+			      'max-results': '1',
+			      'start-date': 'today',
+			      'end-date': 'today'
+		    },
+		    chart: {
+			      container: 'active-users-container-two',
+			      type: 'TABLE',
+			      options: {
+				      width: '100%'
+			      }
+		    }
+		  });
+		    
+		  var dataChartOne = new gapi.analytics.googleCharts.DataChart({
+		    query: {
+		          'ids': siteValue,
+			      'metrics': 'ga:sessions',
+			      'dimensions': 'ga:deviceCategory'
+		    },
+		    chart: {
+			      container: 'chart-one-container',
+			      type: 'PIE',
+			      options: {
+			        width: '500',
+			        height: '470',
+			        colors: ['#42637B', '#222', '#678EAD'],
+			        pieHole: 0.4,
+			        pieSliceText: 'percentage',
+			        pieStartAngle: 40,
+			        legend:{
+				        alignment:'center',
+				        position: 'right',
+				        textStyle:{
+				        	fontSize:16
+				        }
+			        }
+			      }
+		    }
+		  });
+
+		  var dataChartTwo = new gapi.analytics.googleCharts.DataChart({
+		    query: {
+		          'ids': siteValue,
+			      'metrics': 'ga:avgPageLoadTime',
+			      'dimensions': 'ga:browser',
+			      'max-results': '6'
+		    },
+		    chart: {
+			      container: 'chart-two-container',
+			      type: 'COLUMN',
+			      options: {
+				      title: 'Average loading time by browser',
+			        width: '500px',
+			        height: '500px',
+					colors: ['#42637B']
+			      }
+		    }
+		  });
+
+		  var dataChartThree = new gapi.analytics.googleCharts.DataChart({
+		    query: {
+		          'ids': siteValue,
+			      'metrics': 'ga:users, ga:sessions',
+			      'dimensions': 'ga:browser',
+			      'filters': 'ga:avgPageLoadTime!=0'
+		    },
+		    chart: {
+			      container: 'chart-three-container',
+			      type: 'LINE',
+			      options: {
+					'title': 'Tyhme',
+			        'width': '100%',
+			        colors: ['#42637B', '#222'],
+			        curveType: 'function'
+			      }
+		    }
+		  });
+		
+		viewSelector.on('change', function(ids) {
+			activeUsersContainer.set({query: {ids: siteValue}}).execute();
+			activeUsersContainerTwo.set({query: {ids: siteValue}}).execute();
+			dataChartOne.set({query: {ids: siteValue}}).execute();
+			dataChartTwo.set({query: {ids: siteValue}}).execute();
+			dataChartThree.set({query: {ids: siteValue}}).execute();
+		});
+	});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

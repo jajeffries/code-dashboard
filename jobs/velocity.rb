@@ -4,7 +4,8 @@ BOARD = [
 	{'_id' => 'HMV', 'event' => 'HMV-velocity'},
 	{'_id' => 'App', 'event' => 'App-velocity'},
 	{'_id' => 'Apache', 'event' => 'Apache-velocity'},
-	{'_id' => 'Amnesty', 'event' => 'Amnesty-velocity'}
+	{'_id' => 'Amnesty', 'event' => 'Amnesty-velocity'},
+	{'_id' => '302', 'event' => '302-velocity'}
 ]
 
 MONGO_CONN = ENV['MONGO_CONN']
