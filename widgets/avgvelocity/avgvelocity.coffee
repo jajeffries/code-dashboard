@@ -1,7 +1,12 @@
 class Dashing.Avgvelocity extends Dashing.Widget
       ready: ->
       	numberOfVelocities = @velocities.length
-      	lastFourWeeks = @velocities.slice(numberOfVelocities - 4, numberOfVelocities)
+      	@weeks = 4 if not @weeks?
+      	@weeks = numberOfVelocities if numberOfVelocities < @weeks  
+      	lastxWeeks = @velocities.slice(numberOfVelocities - @weeks, numberOfVelocities)
       	total = 0
-      	total += velocity.y for velocity in lastFourWeeks
-      	@set('average', total/4)
+      	total += velocity.y for velocity in lastxWeeks
+      	multiplier = 100
+      	roundedAverage = Math.round( (total/@weeks) * multiplier) / multiplier
+      	@set('average', roundedAverage )
+      	@set('subtitle', @weeks + " weeks")
