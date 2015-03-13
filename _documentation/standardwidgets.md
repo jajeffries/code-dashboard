@@ -4,7 +4,7 @@ The following is a list of Widgets that should be displayed on each Production t
 
 To add / update a widget
 * Clone the Code Dashboard project from github ( https://github.com/code-computerlove/code-dashboard )
-* Amend your team dashboard in the folder \dashboards\ e.g. hmv.erb
+* Amend your team dashboard in the folder [\dashboards\](../dashboards/) e.g. hmv.erb
 * Test locally
 * Commit and Push
 * Changes will be automatically deployed to Heroku
@@ -14,7 +14,7 @@ To add / update a widget
 
 ### Dashboard markup
 
-Populate the data-id with the name of the event in the CYCLE\_TIME\_CALCULATION\_EVENTS array in \jobs\cycle_time.rb
+Populate the data-id with the name of the event in the CYCLE\_TIME\_CALCULATION\_EVENTS array in [\jobs\cycle_time.rb](../jobs/cycle_time.rb)
 (This is also the same name as the document id in MONGO)
 
 ```html
@@ -45,7 +45,7 @@ TODO
 
 ### Dashboard markup
 
-Populate the data-id with the name of the event in the BOARD array in \jobs\velocity.rb
+Populate the data-id with the name of the event in the BOARD array in [\jobs\velocity.rb](../jobs/velocity.rb)
 
 ```html
     <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
@@ -55,7 +55,7 @@ Populate the data-id with the name of the event in the BOARD array in \jobs\velo
 
 ### How it works
 
-* Content is displayed using the Velocity widget (widgets\velocity)
+* Content is displayed using the Velocity widget [widgets\velocity](../widgets/velocity/)
 * Velocity Widget displays last value in collection of Velocities
 * Collection of Velocities is populated by \jobs\velocity.rb
 * Collection is populated from a MONGO database at startup and repopulated on a 6 hourly cycle using the built in Scheduler class
@@ -98,9 +98,9 @@ Populate the attribute "data-weeks" with the number of weeks that the average sh
 
 ### How it works
 
-* Content is displayed using the Average Velocity widget (widgets\avgvelocity)
+* Content is displayed using the Average Velocity widget [widgets\avgvelocity](../widgets/avgvelocity/)
 * Average Velocity Widget displays the average value of the last x entries in the collection of Velocities (where x is defined in the dashboard markup using the data-weeks attribute)
-* Collection of Velocities is populated by \jobs\velocity.rb
+* Collection of Velocities is populated by [\jobs\velocity.rb](../jobs/velocity.rb)
 * Collection is populated from a MONGO database at startup and repopulated on a 6 hourly cycle using the built in Scheduler class
 
 See above for how the MONGO DB is populated
