@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'dashing'
+gem 'dashing', '~> 1.3.4'
 gem 'TrelloCycleTime'
 gem 'mongo', '~> 1.12.0'
 ## Remove this if you don't need a twitter widget.
