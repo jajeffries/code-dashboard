@@ -1,0 +1,23 @@
+<% content_for :title do %>wolfpack<% end %>
+<div class="gridster">
+  <ul>
+    <li class="flips" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div class="hidden" data-id="wolfpack_cycle_time" data-view="Cycletime" data-title="Total Cycle Time"></div>
+      <div data-id="wolfpack_cycle_time_dev" data-view="Cycletime" data-title="Dev Cycle Time"></div>
+    </li>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="wolfpack-velocity" data-view="Velocity" data-title="Weekly Velocity"></div> 
+    </li>
+     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="wolfpack-velocity" data-view="Avgvelocity" data-title="Average Velocity"></div>
+    </li>
+     <li class="flips" data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="wolfpack-velocity" data-view="Avgvelocity" data-title="Average Velocity" data-weeks="8" ></div>
+      <div class="hidden" data-id="wolfpack-velocity" data-view="Avgvelocity" data-title="Average Velocity" data-weeks="12" ></div>
+    </li>
+    <li data-row="1" data-col="4" data-sizex="1" data-sizey="2">
+      <div data-id="bayer-living-builds" data-view="Builds" data-title="Bayer" data-project="BayerCropScience"></div>
+      <div data-id="betta-living-builds" data-view="Builds" data-title="Betta Living" data-project="BettaLiving"></div>
+    </li>
+  </ul>
+</div>
