@@ -24,7 +24,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     backports (3.6.4)
-    bson (1.11.1)
+    bson (1.12.1)
     buftok (0.2.0)
     builder (3.2.2)
     coffee-script (2.2.0)
@@ -64,8 +64,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     mime-types (2.4.3)
     minitest (5.4.3)
-    mongo (1.11.1)
-      bson (= 1.11.1)
+    mongo (1.12.1)
+      bson (= 1.12.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -142,9 +142,9 @@ PLATFORMS
 
 DEPENDENCIES
   TrelloCycleTime
-  dashing
+  dashing (~> 1.3.4)
   git_repository
   loggly-ruby-client!
-  mongo
+  mongo (~> 1.12.0)
   peach
   twitter (>= 5.0.0)
