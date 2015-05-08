@@ -2,16 +2,17 @@ require 'net/http'
 require 'json'
 require 'time'
 
-JENKINS_URI = URI.parse("http://localhost:8080")
+JENKINS_URI = URI.parse("http://jenkins.dev")
 
 JENKINS_AUTH = {
-  'name' => nil,
-  'password' => nil
+  'name' => ENV['JENKINS_USER'],
+  'password' => ENV['JENKINS_PASSWORD']
 }
 
 # the key of this mapping must be a unique identifier for your job, the according value must be the name that is specified in jenkins
 job_mapping = {
-  'JOB' => { :job => 'BUILD', :pre_job => 'PRE_BUILD'}
+  'AndroidBase-UAT' => { :job => 'AndroidBase-UAT'},
+  'AndroidBase-Integration' => { :job => 'AndroidBase-Integration'}
 }
 
 def get_number_of_failing_tests(job_name)
