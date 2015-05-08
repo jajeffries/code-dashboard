@@ -1,11 +1,11 @@
 require_relative '../lib/MongoRepository'
 
 BOARD = [
+	{'_id' => '302', 'event' => '302-velocity'},
 	{'_id' => 'HMV', 'event' => 'HMV-velocity'},
 	{'_id' => 'App', 'event' => 'App-velocity'},
 	{'_id' => 'Apache', 'event' => 'Apache-velocity'},
-	{'_id' => 'Foxhound', 'event' => 'Foxhound-velocity'},
-	{'_id' => '302', 'event' => '302-velocity'}
+	{'_id' => 'Foxhound', 'event' => 'Foxhound-velocity'}	
 ]
 
 MONGO_CONN = ENV['MONGO_CONN']
