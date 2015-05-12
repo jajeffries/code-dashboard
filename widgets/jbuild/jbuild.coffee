@@ -1,8 +1,9 @@
 class Dashing.Jbuild extends Dashing.Widget
 
-  ready: ->
-		$(@node).find('.jbuild').jenkinsBuildStatus({			
+	ready: ->
+		$(@node).find('.jbuild').jenkinsBuildStatus({
 			jenkinsUrl : 'http://jenkins.dev',
-			projectGroupName : @project,
+			projectTitle : @title,
+			projectName: @project,
 			refreshTimeout : 5000
 		});
