@@ -110,11 +110,11 @@
 				'blue' : 'SUCCESS',
 				'blue_anime' : 'SUCCESS', 
 
-				'notbuilt' : 'FAILURE',
-				'notbuilt_anime' : 'FAILURE',
+				'notbuilt' : 'SUCCESS',
+				'notbuilt_anime' : 'SUCCESS',
 
-				'aborted' : 'FAILURE',
-				'aborted_anime' : 'FAILURE'		
+				'aborted' : 'SUCCESS',
+				'aborted_anime' : 'SUCCESS'		
 				
 			};
 
