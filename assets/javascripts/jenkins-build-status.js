@@ -136,14 +136,15 @@
 
 		function updateStatus(color){
 			buildStageElement
-				.prop('class', BUILD_STAGE_CLASS)
-				.addClass(statusClasses[color])
+				.prop('class', BUILD_STAGE_CLASS)				
 				.toggleClass('running', color.lastIndexOf("anime") !== -1);
 			
 			if (statusClasses[color] === 'FAILURE'){
+				buildStageElement.addClass("failed");
 				projectDisplay.hasFailed(jobData.name);
 			}
 			else {
+				buildStageElement.addClass("success");
 				projectDisplay.hasPassed(jobData.name);
 			}
 		}
