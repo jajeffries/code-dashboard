@@ -1,15 +1,18 @@
 (function($, undefined){
 
-	$.fn.jenkinsBuildStatus = function(options){
+	$.fn.jenkinsBuildStatus = function(options){		
 		return this.each(function(){
 			new JenkinsBuildStatus(this, options);
 		});
 	};
 
 	var JenkinsBuildStatus = function(element, options){
-		
+
 		function init(){
-			$("div[id='" + element.id + "']").children().remove();		
+			
+			while (element.firstChild) {
+			    element.removeChild(element.firstChild);
+			}	
 
 			var projectBuild = new ProjectBuild(element, options);
 			var jenkinsAllJobsRepository = new JenkinsAllJobsRepository(options);			
@@ -34,9 +37,9 @@
 		function createElement(){
 			var title = $('<div>')
 				.addClass('title')
-				.text(options.projectGroupName);
+				.text(options.projectTitle);
 			return $('<div>')
-				.attr('id', options.projectGroupName)
+				.attr('id', options.projectName)
 				.addClass(PROJECT_CLASS)
 				.addClass('success')
 				.append(title)
@@ -74,7 +77,7 @@
 
 		this.getAllJobs = function(callback){
 			$.ajax({
-				url : options.jenkinsyUrl + GET_ALL_JOBS_URL,
+				url : options.jenkinsUrl + GET_ALL_JOBS_URL,
 				headers : {
 					accept : 'application/json'
 				}, 
@@ -82,7 +85,7 @@
 					var subSet = [];
 					
 					result.jobs.forEach(function filterProjectBuilds(element, index, array) {
-					  if(element.name.indexOf(options.projectGroupName) == 0)
+					  if(element.name.indexOf(options.projectName) == 0)
 					  	subSet.push(element);
 					});
 					callback(subSet);
@@ -111,7 +114,8 @@
 				'notbuilt_anime' : 'FAILURE',
 
 				'aborted' : 'FAILURE',
-				'aborted_anime' : 'FAILURE'				
+				'aborted_anime' : 'FAILURE'		
+				
 			};
 
 		function init(){
