@@ -5,5 +5,5 @@ class Dashing.Jbuild extends Dashing.Widget
 			jenkinsUrl : 'http://jenkins.dev',
 			projectTitle : @title,
 			projectName: @project,
-			refreshTimeout : 5000
+			refreshTimeout : 10000
 		});
