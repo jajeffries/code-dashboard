@@ -5,8 +5,7 @@ class Dashing.Loggly extends Dashing.Widget
     if points
       points[points.length - 1].y
 
-  ready: ->
-    console.log(this.points)
+  ready: ->    
     container = $(@node).parent()
     # Gross hacks. Let's fix this.
     width = (Dashing.widget_base_dimensions[0] * container.data("sizex")) + Dashing.widget_margins[0] * 2 * (container.data("sizex") - 1)
