@@ -1,9 +1,13 @@
 class Dashing.Jbuild extends Dashing.Widget
 
 	ready: ->
+		jenkinsServer =
+			app: 'http://shadaloo.ci.dev'
+			apache :'http://192.168.0.67:8080'		
 		$(@node).find('.jbuild').jenkinsBuildStatus({
-			jenkinsUrl : 'http://shadaloo.ci.dev',
+			jenkinsUrl : jenkinsServer[@team],
 			projectTitle : @title,
 			projectName: @project,
-			refreshTimeout : 5000
+			refreshTimeout : 10000
 		});
+		

@@ -15,7 +15,9 @@ CYCLE_TIME_CALCULATION_EVENTS = [
 	'foxhound_cycle_time',
 	'foxhound_cycle_time_all',
 	'peartree_cycle_time',
-	'peartree_cycle_time_dev'
+	'peartree_cycle_time_dev',
+	'Wolfpack_cycle_time_dev',
+	'Wolfpack_cycle_time'
 ]
 
 MONGO_CONN = ENV['MONGO_CONN']
