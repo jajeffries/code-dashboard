@@ -9,7 +9,7 @@ BOARD = [
 	{'_id' => 'WolfPack', 'event' => 'Wolfpack-velocity'}	
 ]
 
-MONGO_CONN = "mongodb://read:r3ad3r@ds039880.mongolab.com:39880/production"
+MONGO_CONN = ENV['MONGO_CONN']
 
 if MONGO_CONN
 	repository = MongoRepository.new(MONGO_CONN, 'production', 'velocity')
