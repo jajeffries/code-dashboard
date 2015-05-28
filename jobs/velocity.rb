@@ -6,10 +6,10 @@ BOARD = [
 	{'_id' => 'App', 'event' => 'App-velocity'},
 	{'_id' => 'Apache', 'event' => 'Apache-velocity'},
 	{'_id' => 'Foxhound', 'event' => 'Foxhound-velocity'},
-	{'_id' => 'Wolfpack', 'event' => 'Wolfpack-velocity'}	
+	{'_id' => 'WolfPack', 'event' => 'Wolfpack-velocity'}	
 ]
 
-MONGO_CONN = ENV['MONGO_CONN']
+MONGO_CONN = "mongodb://read:r3ad3r@ds039880.mongolab.com:39880/production"
 
 if MONGO_CONN
 	repository = MongoRepository.new(MONGO_CONN, 'production', 'velocity')

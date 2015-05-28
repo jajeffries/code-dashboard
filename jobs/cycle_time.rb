@@ -1,6 +1,8 @@
 require_relative '../lib/MongoRepository'
 
 CYCLE_TIME_CALCULATION_EVENTS = [
+	'wolfpack_cycle_time_dev',
+	'wolfpack_cycle_time',
 	'app_cycle_time',
 	'app_cycle_time_dev',
 	'hmv_cycle_time',
@@ -13,14 +15,10 @@ CYCLE_TIME_CALCULATION_EVENTS = [
 	'302_cycle_time_all',
 	'foxhound_cycle_time_dev',
 	'foxhound_cycle_time',
-	'foxhound_cycle_time_all',
-	'peartree_cycle_time',
-	'peartree_cycle_time_dev',
-	'Wolfpack_cycle_time_dev',
-	'Wolfpack_cycle_time'
+	'foxhound_cycle_time_all'
 ]
 
-MONGO_CONN = ENV['MONGO_CONN']
+MONGO_CONN = "mongodb://read:r3ad3r@ds039880.mongolab.com:39880/production"
 
 if MONGO_CONN
 	repository = MongoRepository.new(MONGO_CONN, 'production', 'cycle_time')
