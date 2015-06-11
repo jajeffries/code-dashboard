@@ -41,7 +41,7 @@
 			return $('<div>')
 				.attr('id', options.projectName)
 				.addClass(PROJECT_CLASS)
-				.addClass('success')
+				.addClass('failed')
 				.append(title)
 				.appendTo(element)
 		}
