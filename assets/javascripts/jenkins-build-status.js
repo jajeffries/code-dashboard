@@ -59,11 +59,12 @@
 			var index = failedBuilds.indexOf(buildStageId);
 			if (index !== -1){
 				failedBuilds.splice(index, 1);
-				if (failedBuilds.length === 0){
-					projectElement
-						.prop('class', PROJECT_CLASS)
-						.addClass('success');
-				}
+			}
+
+			if (failedBuilds.length === 0){
+				projectElement
+					.prop('class', PROJECT_CLASS)
+					.addClass('success');
 			}
 		};
 
