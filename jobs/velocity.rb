@@ -6,7 +6,7 @@ BOARD = [
 	{'_id' => 'App', 'event' => 'App-velocity'},
 	{'_id' => 'Apache', 'event' => 'Apache-velocity'},
 	{'_id' => 'Foxhound', 'event' => 'Foxhound-velocity'},
-	{'_id' => 'Wolfpack', 'event' => 'Wolfpack-velocity'}	
+	{'_id' => 'WolfPack', 'event' => 'Wolfpack-velocity'}	
 ]
 
 MONGO_CONN = ENV['MONGO_CONN']
