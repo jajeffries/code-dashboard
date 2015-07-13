@@ -1,17 +1,19 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
-2 info using npm@1.4.3
-3 info using node@v0.10.26
-4 error install Couldn't read dependencies
-5 error package.json ENOENT, open '/Users/iainmitchell/workspace/code-dashboard/package.json'
-5 error package.json This is most likely not a problem with npm itself.
-5 error package.json npm can't find a package.json file in your current directory.
-6 error System Darwin 11.4.2
-7 error command "node" "/usr/local/bin/npm" "install"
-8 error cwd /Users/iainmitchell/workspace/code-dashboard
-9 error node -v v0.10.26
-10 error npm -v 1.4.3
-11 error path /Users/iainmitchell/workspace/code-dashboard/package.json
-12 error code ENOPACKAGEJSON
-13 error errno 34
-14 verbose exit [ 34, true ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'test' ]
+2 info using npm@2.7.5
+3 info using node@v0.12.2
+4 verbose node symlink /usr/local/bin/node
+5 verbose stack Error: ENOENT, open '/Users/tonymcbeth/Work/code-dashboard/package.json'
+5 verbose stack     at Error (native)
+6 verbose cwd /Users/tonymcbeth/Work/code-dashboard
+7 error Darwin 14.4.0
+8 error argv "node" "/usr/local/bin/npm" "test"
+9 error node v0.12.2
+10 error npm  v2.7.5
+11 error path /Users/tonymcbeth/Work/code-dashboard/package.json
+12 error code ENOENT
+13 error errno -2
+14 error enoent ENOENT, open '/Users/tonymcbeth/Work/code-dashboard/package.json'
+14 error enoent This is most likely not a problem with npm itself
+14 error enoent and is related to npm not being able to find a file.
+15 verbose exit [ -2, true ]
