@@ -11,6 +11,10 @@ $color-4:           #94c73b;
 
   position: relative;
 
+  .widget__circle {
+    background-color: #fff;
+  }
+
   &.cycle-dev {
     svg {
       path {

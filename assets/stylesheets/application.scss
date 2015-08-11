@@ -196,12 +196,12 @@ h3 {
 }
 
 .main-container {
-  padding: 30px 20px 20px;
+  padding: 10px 20px 20px;
   background: #eee;
 }
 
 .builds {
-  padding: 30px 20px 20px;
+  padding: 10px 20px 20px;
 }
 
 .main {
@@ -211,19 +211,19 @@ h3 {
     border: 1px solid $border-color;
     box-sizing: border-box;
     position: relative;
-    min-height: 200px;
+    min-height: 160px;
 
       svg {
         width: 100%;
         fill: #666;
         margin-bottom: 40px;
-        margin-top: 80px;
+        margin-top: 40px;
       }
 
   }
   & .widget-velocity{
      & svg {
-      margin-top: 120px;
+      margin-top: 80px;
     }
   }
 }
@@ -323,13 +323,13 @@ h3 {
 
 
 .display-block {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .display-block__title {
-  font-size: 30px;
+  font-size: 24px;
   color: $header-color;
   @include webfont;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 10px 0 10px 50px;
   background: transparent url(/assets/cycle-icon.png) 0 center no-repeat;
   &.display-block__title--velocity{
@@ -392,6 +392,7 @@ h3 {
   letter-spacing: 0;
   font-weight: normal;
   text-align: center;
+  position: relative;
 }
 .widget__value-numerator--left {
   text-align: left;
@@ -399,8 +400,8 @@ h3 {
 
 .widget__value-container--graph {
   padding: 10px;
-  top: 80px;
-  right: 40px;
+  top: 60px;
+  right: 20px;
   
   border: 1px solid $border-color;
   padding-left: 60px;
