@@ -6,8 +6,8 @@ class Dashing.Jbuild extends Dashing.Widget
 			apache :'http://192.168.0.67:8080'		
 		$(@node).find('.jbuild').jenkinsBuildStatus({
 			jenkinsUrl : jenkinsServer[@team],
-			projectTitle : @title,
-			projectName: @project,
+			projectName : @title,
+			projectId: @project,
 			refreshTimeout : 10000
 		});
 		

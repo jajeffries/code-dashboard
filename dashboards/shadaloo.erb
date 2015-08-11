@@ -1,44 +1,54 @@
-<% content_for :title do %>App Team<% end %>
-<div class="gridster">
-  <ul>
-    <li class="flips" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div class="hidden" data-id="app_cycle_time" data-view="Cycletime" data-title="Total Cycle Time"></div>
-      <div data-id="app_cycle_time_dev" data-view="Cycletime" data-title="Dev Cycle Time"></div>
-    </li>
-
-    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="App-velocity" data-view="Velocity" data-title="Weekly Velocity"></div> 
-    </li>
-    <li class="flips" data-row="3" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="App-velocity" data-view="Avgvelocity" data-title="Average Velocity" data-weeks="8" ></div>
-      <div class="hidden" data-id="App-velocity" data-view="Avgvelocity" data-title="Average Velocity" data-weeks="12" ></div>
-    </li>
-
-    <li data-row="1" data-col="2" data-sizex="1" data-sizey="2">
-      
+<% content_for :title do %>Shadaloo<% end %>
+<div class="grid clearfix">
+  <div class="col col-1">
+    <div class="builds">
+      <div class="team-title">Shadaloo</div>
       <div data-id="bayer-ios-jbuild" data-view="Jbuild" data-title="Bayer Identification App - iOS" data-project="Bayer Identification App - iOS" data-team="app"></div>
       <div data-id="bayer-android-jbuild" data-view="Jbuild" data-title="Bayer Identification App - Android" data-project="Bayer Identification App - Android" data-team="app"></div>
       <div data-id="nus-ios-jbuild" data-view="Jbuild" data-title="NUS extra - iOS" data-project="NUS extra Discount App - iOS" data-team="app"></div>
       <div data-id="dog-ios-jbuild" data-view="Jbuild" data-title="Dogs Home - iOS" data-project="Dogs Home - iOS" data-team="app"></div>
-      
-    </li>
-
-    <li data-row="1" data-col="3" data-sizex="1" data-sizey="2">
       <div data-id="zoo-ios-jbuild" data-view="Jbuild" data-title="Chester Zoo - iOS" data-project="Chester Zoo App - iOS" data-team="app"></div>
       <div data-id="zoo-android-jbuild" data-view="Jbuild" data-title="Chester Zoo - Android" data-project="Chester Zoo App - Android" data-team="app"></div>
-      
       <div data-id="nus-android-jbuild" data-view="Jbuild" data-title="NUS extra - Cordova" data-project="NUS extra Discount App - Cordova" data-team="app"></div>
       <div data-id="code-ews-builds" data-view="Builds" data-title="Code EWS API" data-project="CodeEwsService"></div>
       <div data-id="code-gcal-builds" data-view="Jbuild" data-title="Code Google Calendar API" data-project="Code Google Calendar API" data-team="app"></div>
       <div data-id="code-mra-builds" data-view="Jbuild" data-title="Meeting Room App API" data-project="Code Meeting Room App API" data-team="app"></div>
-    </li>
-
-    <li data-row="1" data-col="4" data-sizex="1" data-sizey="2">
       <div data-id="code-notification-service-jbuild" data-view="Jbuild" data-title="Code Notification" data-project="Code Notification" data-team="app"></div>
       <div data-id="meeting-app-android-jbuild" data-view="Jbuild" data-title="Meeting App - Android" data-project="Meeting App - Android" data-team="app"></div>
       <div data-id="brother-ios-jbuild" data-view="Jbuild" data-title="Brother UK Presenter - iOS" data-project="Brother UK - iOS" data-team="app"></div>
-    </li>
+   </div>
+  </div>
+  <div class="main col col-2">
+    <div class="main-container">
+      <div class="display-block cycle-times clearfix">
+        <h2 class="display-block__title display-block__title--cycle">Cycle times</h2>
+        <div class="display-block__content clearfix">
+          <div class="col inner-col-1">
+            <div data-id="app_cycle_time_dev" data-view="Cycletime" data-title="Development" class="cycle-dev"></div>
+          </div>
+          <div class="col inner-col-1">
+            <div data-id="app_cycle_time" data-view="Cycletime" data-title="Total" class="cycle-total"></div>
+          </div>
+        </div>
+      </div>
 
-
-  </ul>
+      <div class="display-block velocity clearfix">
+        <h2 class="display-block__title display-block__title--velocity">Velocity</h2>
+        <div class="display-block__content">
+          <div class="col inner-col-1">
+            <div data-id="App-velocity" data-view="Velocity" data-title="Weekly Velocity"></div> 
+           </div>
+          <div class="col inner-col-1">
+            <div class="col inner-col-half"> 
+              <div data-id="App-velocity" data-view="Avgvelocity" data-title="Average Velocity" data-weeks="8" ></div>
+            </div>
+            <div class="col inner-col-half">
+              <div data-id="App-velocity" data-view="Avgvelocity" data-title="Average Velocity" data-weeks="12" ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+      

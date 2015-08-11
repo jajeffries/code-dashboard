@@ -2,19 +2,57 @@ $background-color:  #0000FF;
 $title-color:       rgba(255, 255, 255, 0.7);
 $moreinfo-color:    rgba(255, 255, 255, 0.3);
 $tick-color:        rgba(0, 0, 0, 0.4);
+$color-1:           #ffc600;
+$color-2:           #4a89dc;
+$color-3:           #3bc7ae;
+$color-4:           #94c73b;
 
 .widget-cycletime {
 
-  background-color: $background-color;
   position: relative;
 
+  &.cycle-dev {
+    svg {
+      path {
+        fill: $color-1;
+      }
+    }
+    .widget__circle {
+      border-color: darken($color-1, 5%);
+    }
+  }
 
-  svg {
-    position: absolute;
-    opacity: 0.4;
-    fill-opacity: 0.7;
-    left: 0px;
-    top: 0px;
+  &.cycle-total {
+    svg {
+      path {
+        fill: $color-2;
+      }
+    }
+    .widget__circle {
+      border-color: darken($color-2, 5%);
+    }
+  }
+
+  &.cycle-prod {
+    svg {
+      path {
+        fill: $color-3;
+      }
+    }
+    .widget__circle {
+      border-color: darken($color-3, 5%);
+    }
+  }
+
+  &.cycle-client {
+    svg {
+      path {
+        fill: $color-4;
+      }
+    }
+    .widget__circle {
+      border-color: darken($color-4, 5%);
+    }
   }
 
   .title, .value {
@@ -23,7 +61,6 @@ $tick-color:        rgba(0, 0, 0, 0.4);
   }
 
   .title {
-    color: $title-color;
   }
 
   .more-info {
@@ -35,19 +72,16 @@ $tick-color:        rgba(0, 0, 0, 0.4);
 
   .x_tick {
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     .title {
-      font-size: 20px;
-      color: $tick-color;
-      opacity: 0.5;
+      font-size: 14px;
       padding-bottom: 3px;
     }
   }
 
   .y_ticks {
-    font-size: 20px;
-    fill: $tick-color;
-    fill-opacity: 1;
+    font-size: 14px;
+
   }
 
   .domain {

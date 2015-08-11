@@ -1,6 +1,8 @@
-
-<h1 class="title" data-bind="title"></h1>
-
-<h2 class="value" data-bind="current | prettyNumber | prepend prefix"></h2>
-
-<h4>complexity points</h4>
+<div class="widget__title-block">
+	<h1 class="title widget__title" data-bind="title"></h1>
+</div>
+<div class="widget__value-container widget__value-container--graph">
+	<div class="widget__graph"></div>
+	<h2 class="value widget__value-title widget__value-title--left" data-bind="current | prettyNumber | prepend prefix"></h2>
+	<h4 class="widget__value-numerator widget__value-numerator--left">complexity points</h4>
+</div>

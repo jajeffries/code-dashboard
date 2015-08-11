@@ -1,3 +1,8 @@
-<h1 class="title" data-bind="title"></h1>
-<h2 class="value" data-bind="current | prettyNumber | prepend prefix"></h2>
-<h4>days</h4>
+<div class="widget__title-block">
+	<h1 class="title widget__title" data-bind="title"></h1>
+</div>
+<div class="widget__value-container">
+	<div class="widget__circle"></div>
+	<h2 class="value widget__value-title" data-bind="current | prettyNumber | prepend prefix"></h2>
+	<h4 class="widget__value-numerator">days</h4>
+</div>

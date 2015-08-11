@@ -1,23 +1,41 @@
 <% content_for :title do %>Foxhound<% end %>
-<div class="gridster">
-  <ul>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="foxhound_cycle_time_dev" data-view="Cycletime" data-title="Dev Cycle Time"></div>
-    </li>
-    <li class="flips" data-row="1" data-col="2" data-sizex="1" data-sizey="1">
-      <div class="hidden" data-id="foxhound_cycle_time" data-view="Cycletime" data-title="Production Cycle Time"></div>
-      <div data-id="foxhound_cycle_time_all" data-view="Cycletime" data-title="Total Cycle Time"></div>
-    </li>
-    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
-      <div data-id="foxhound-velocity" data-view="Velocity" data-title="Weekly Velocity"></div> 
-    </li>
-    <li data-row="2" data-col="1" data-sizex="1" data-sizey="2">
-      <div data-id="amnesty" data-view="Builds" data-title="Amnesty Web" data-project="AmnestyInternationalWebsite"></div>
-      <div data-id="amnesty-search" data-view="Builds" data-title="Amnesty Search" data-project="AmnestyInternationalSearchManagement"></div>
-    </li>
-    <li data-row="2" data-col="2" data-sizex="1" data-sizey="2">
-      <div data-id="woodland-trust-develop" data-view="Builds" data-title="Woodland Trust (develop)" data-project="WoodlandTrustWebsite" data-branch="develop"></div>
-      <div data-id="woodland-trust-search" data-view="Builds" data-title="Woodland Trust Search" data-project="WoodlandTrustSearchManagement" data-branch="master"></div>
-    </li>
-  </ul>
+<div class="grid clearfix">
+  <div class="col col-1">
+    <div class="builds">
+      <div class="team-title">Foxhound</div>
+        <div data-id="amnesty" data-view="Builds" data-title="Amnesty Web" data-project="AmnestyInternationalWebsite"></div>
+        <div data-id="amnesty-search" data-view="Builds" data-title="Amnesty Search" data-project="AmnestyInternationalSearchManagement"></div>
+        <div data-id="woodland-trust-develop" data-view="Builds" data-title="Woodland Trust (develop)" data-project="WoodlandTrustWebsite" data-branch="develop"></div>
+        <div data-id="woodland-trust-search" data-view="Builds" data-title="Woodland Trust Search" data-project="WoodlandTrustSearchManagement" data-branch="master"></div>
+      </div>
+    </div>
+    <div class="main col col-2">
+      <div class="main-container">
+        <div class="display-block cycle-times clearfix">
+          <h2 class="display-block__title display-block__title--cycle">Cycle times</h2>
+          <div class="display-block__content clearfix">
+            <div class="col inner-col-third">
+              <div data-id="foxhound_cycle_time_dev" data-view="Cycletime" data-title="Development" class="cycle-dev"></div>
+            </div>
+            <div class="col inner-col-third">
+              <div data-id="foxhound_cycle_time" data-view="Cycletime" data-title="Production" class="cycle-prod"></div>
+            </div>
+            <div class="col inner-col-third">
+              <div data-id="foxhound_cycle_time_all" data-view="Cycletime" data-title="Total" class="cycle-total"></div>
+            </div>
+          </div>
+        </div>
+        <div class="display-block velocity clearfix">
+          <h2 class="display-block__title display-block__title--velocity">Velocity</h2>
+          <div class="display-block__content">
+            <div class="col inner-col-full">
+              <div data-id="foxhound-velocity" data-view="Velocity" data-title="Weekly Velocity"></div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
 </div>
+    
+      

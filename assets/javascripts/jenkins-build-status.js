@@ -9,10 +9,6 @@
 	var JenkinsBuildStatus = function(element, options){
 
 		function init(){
-			
-			while (element.firstChild) {
-			    element.removeChild(element.firstChild);
-			}	
 
 			var projectBuild = new ProjectBuild(element, options);
 			var jenkinsAllJobsRepository = new JenkinsAllJobsRepository(options);			
@@ -31,23 +27,20 @@
 
 	var ProjectBuild = function(element, options){
 		var PROJECT_CLASS = 'project',
-			projectElement = createElement(),
 			failedBuilds = [];
 
-		function createElement(){
-			var title = $('<div>')
-				.addClass('title')
-				.text(options.projectTitle);
-			return $('<div>')
-				.attr('id', options.projectName)
-				.addClass(PROJECT_CLASS)
-				.addClass('failed')
-				.append(title)
-				.appendTo(element)
-		}
+			var $element = $(element);
+			var $project = $element.find('[data-project]');
+			var $title = $project.find('[data-title]');
+			var id = options.projectId.replace(/ /g,'');
+
+			$project.attr('id', id)
+			.addClass(PROJECT_CLASS)
+			.addClass('failed')
+			$title.text(options.projectName);
 
 		this.hasFailed = function(buildStageId){
-			projectElement
+			$project
 				.prop('class', PROJECT_CLASS)
 				.addClass('failed');
 			if (failedBuilds.indexOf(buildStageId) === -1){
@@ -62,14 +55,18 @@
 			}
 
 			if (failedBuilds.length === 0){
-				projectElement
+				$project
 					.prop('class', PROJECT_CLASS)
 					.addClass('success');
 			}
 		};
 
 		this.showBuild = function(buildElement){
-			projectElement.append(buildElement);
+			//if($('#' + id).length < 0){
+				var current = buildElement[0].id;
+				$('#' + current).remove();
+				$project.append(buildElement);
+			//}
 		};
 	};
 
@@ -84,10 +81,11 @@
 				}, 
 				success : function(result){
 					var subSet = [];
-					
 					result.jobs.forEach(function filterProjectBuilds(element, index, array) {
-					  if(element.name.indexOf(options.projectName) == 0)
+						
+					  if(element.name.indexOf(options.projectId) == 0){
 					  	subSet.push(element);
+					  }
 					});
 					callback(subSet);
 				}
@@ -101,7 +99,7 @@
 		};
 	};
 
-	var BuildStage = function(projectDisplay, jobData){	
+	var BuildStage = function(projectDisplay, jobData){
 		var BUILD_STAGE_CLASS = 'build-stage',
 			buildStageElement,
 			statusClasses = {
@@ -124,14 +122,18 @@
 			updateStatus(jobData.color);			
 		}
 
+		var id = jobData.name.replace(/ /g,'');
+
 		function show(){
-			var nameElement = $('<span>')
+				var nameElement = $('<span>')
 					.addClass('name')
 					.text(jobData.name);
 			buildStageElement = $('<div>')
-				.attr('id', jobData.name)
+				.attr('id', id)
 				.addClass(BUILD_STAGE_CLASS)
 				.append(nameElement);
+			
+			
 			projectDisplay.showBuild(buildStageElement);
 		}
 
@@ -139,14 +141,13 @@
 			buildStageElement
 				.prop('class', BUILD_STAGE_CLASS)				
 				.toggleClass('running', color.lastIndexOf("anime") !== -1);
-			
 			if (statusClasses[color] === 'FAILURE'){
 				buildStageElement.addClass("failed");
-				projectDisplay.hasFailed(jobData.name);
+				projectDisplay.hasFailed(id);
 			}
 			else {
 				buildStageElement.addClass("success");
-				projectDisplay.hasPassed(jobData.name);
+				projectDisplay.hasPassed(id);
 			}
 		}
 

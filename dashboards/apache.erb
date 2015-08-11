@@ -1,30 +1,50 @@
 <% content_for :title do %>Apache<% end %>
-<div class="gridster">
-  <ul>
-    <li class="flips" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div class="hidden" data-id="apache_cycle_time" data-view="Cycletime" data-title="Total Cycle Time"></div>
-      <div data-id="apache_cycle_time_dev" data-view="Cycletime" data-title="Dev Cycle Time"></div>
-    </li>
-    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-id="Apache-velocity" data-view="Velocity" data-title="Weekly Velocity"></div> 
-    </li>
-     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="Apache-velocity" data-view="Avgvelocity" data-title="Average Velocity"></div>
-    </li>
-     <li class="flips" data-row="2" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-id="Apache-velocity" data-view="Avgvelocity" data-title="Average Velocity" data-weeks="8" ></div>
-      <div class="hidden" data-id="Apache-velocity" data-view="Avgvelocity" data-title="Average Velocity" data-weeks="12" ></div>
-    </li>
-    <li data-row="1" data-col="3" data-sizex="1" data-sizey="2">
+<div class="grid clearfix">
+  <div class="col col-1">
+    <div class="builds">
+      <div class="team-title">Apache</div>
+      <div data-id="bsm-jbuild" data-view="Jbuild" data-title="Hillarys Two-Stack CMS" data-project="Hillarys Two-Stack CMS" data-team="apache"></div>
+      <div data-id="bsm-jbuild" data-view="Jbuild" data-title="Hillarys Load Tests" data-project="HillarysTwo-StackCMS-Public-LoadTest" data-team="apache"></div>
+      <div data-id="bsm-jbuild" data-view="Jbuild" data-title="Blinds Supermarket" data-project="Blinds Supermarket" data-team="apache"></div>
       <div data-id="hillarys-builds" data-view="Builds" data-title="Hillarys" data-project="HillarysAutoDeploy"></div>
       <div data-id="hull-trains-living-builds" data-view="Builds" data-title="Hull Trains" data-project="HullTrainsWebsite"></div>
       <div data-id="senator-builds" data-view="Builds" data-title="Senator Group" data-project="SenatorGroup"></div>
       <div data-id="transpennine-express-builds" data-view="Builds" data-title="Transpennine Express" data-project="TranspennineExpress"></div>
-    </li>
-    <li data-row="1" data-col="4" data-sizex="1" data-sizey="2">
-      <div data-id="bsm-jbuild" data-view="Jbuild" data-title="Hillarys Two-Stack CMS" data-project="Hillarys Two-Stack CMS" data-team="apache"></div>
-      <div data-id="bsm-jbuild" data-view="Jbuild" data-title="Hillarys Load Tests" data-project="HillarysTwo-StackCMS-Public-LoadTest" data-team="apache"></div>
-      <div data-id="bsm-jbuild" data-view="Jbuild" data-title="Blinds Supermarket" data-project="Blinds Supermarket" data-team="apache"></div>
-    </li>
-  </ul>
+    </div>
+  </div>
+  <div class="main col col-2">
+    <div class="main-container">
+      <div class="display-block cycle-times clearfix">
+        <h2 class="display-block__title display-block__title--cycle">Cycle times</h2>
+        <div class="display-block__content clearfix">
+          <div class="col inner-col-1">
+            <div data-id="apache_cycle_time_dev" data-view="Cycletime" data-title="Development" class="cycle-dev"></div>
+          </div>
+          <div class="col inner-col-1">
+            <div data-id="apache_cycle_time" data-view="Cycletime" data-title="Total" class="cycle-total"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="display-block velocity clearfix">
+        <h2 class="display-block__title display-block__title--velocity">Velocity</h2>
+        <div class="display-block__content">
+          <div class="col inner-col-1">
+            <div data-id="Apache-velocity" data-view="Velocity" data-title="Weekly Velocity"></div>
+          </div>
+          <div class="col inner-col-1">
+            <div class="col inner-col-half"> 
+              <div data-id="Apache-velocity" data-view="Avgvelocity" data-title="Average Velocity"></div>
+            </div>
+            <div class="col inner-col-half">
+              <div data-id="Apache-velocity" data-view="Avgvelocity" data-title="Average Velocity" data-weeks="8" ></div>
+            </div>
+            <div class="col inner-col-half">
+              <div data-id="Apache-velocity" data-view="Avgvelocity" data-title="Average Velocity" data-weeks="12" ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
