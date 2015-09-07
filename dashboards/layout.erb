@@ -17,19 +17,60 @@
   <link rel="icon" href="/assets/favicon.ico">
 
 </head>
-  <body>
-    <div id="container">
-      <%= yield %>
-    </div>
+<body>
+  <div id="container">
+    <%= yield %>
+  </div>
   
-    <% if development? %>
-      <div id="saving-instructions">
-        <p>Paste the following at the top of <i><%= params[:dashboard] %>.erb</i></p>
-        <textarea id="gridster-code"></textarea>
-      </div>
-      <a href="#saving-instructions" id="save-gridster">Save this layout</a>
-    <% end %>
-    <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
-    <script src="js/interval-timer.js"></script>
-  </body>
+  <% if development? %>
+  <div id="saving-instructions">
+    <p>Paste the following at the top of <i><%= params[:dashboard] %>.erb</i></p>
+    <textarea id="gridster-code"></textarea>
+  </div>
+  <a href="#saving-instructions" id="save-gridster">Save this layout</a>
+  <% end %>
+
+  <script>
+  (function animateLeftColumn() {
+
+    var refreshrate = 10000;
+    var builds = $('.builds');
+    var releases = $('.releases');
+    var slideAnimationClass = 'slide';
+    var narrowColumnClass = 'col-narrow';
+
+    if( dashHasReleases() ) {
+      builds.addClass(narrowColumnClass);
+      startAnimation();
+    }
+    else {
+      builds.css("position", "initial");
+    }
+
+    function dashHasReleases() {
+      return releases.length;
+    }
+
+    function startAnimation() {
+      builds.addClass(slideAnimationClass);
+      setInterval(animate, refreshrate);
+    }
+
+    function animate() {
+      if( builds.hasClass(slideAnimationClass) ) {
+        builds.removeClass(slideAnimationClass);
+        releases.addClass(slideAnimationClass);  
+      }
+      else {
+        releases.removeClass(slideAnimationClass);
+        builds.addClass(slideAnimationClass);         
+      }
+    }
+
+  })();
+  </script>
+
+  <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+  <script src="js/interval-timer.js"></script>
+</body>
 </html>
