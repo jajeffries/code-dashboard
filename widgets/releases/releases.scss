@@ -1,0 +1,42 @@
+
+#releases {
+
+	#title {
+		span {
+			font-size: 30px;
+		}
+
+		span:nth-child(1) {
+			margin-right: 10px;
+		}
+	}
+
+	#release-list {
+
+		li {
+
+			margin-bottom: 20px;
+
+			div:first-child {	
+				padding: 5px 0;
+				margin-top: 10px;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+			}
+
+			div:not(:first-child) span {
+				font-size: 14px;
+			}
+
+		}
+
+	}
+}
+
+.slide {
+	transition: 1s !important;
+	left: 0px !important;
+}
+
+.status-attention-required {
+	background-color: #d54040;
+}

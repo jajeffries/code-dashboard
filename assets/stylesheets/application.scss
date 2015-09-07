@@ -166,9 +166,15 @@ h3 {
 }
 .col-1 {
   width: 20%;
+  height: 1px;
 }
 .col-2 {
+  position: relative;
   width: 80%;
+}
+
+.col-narrow {
+  width: 18%;
 }
 
 .inner-col-full {
@@ -202,7 +208,18 @@ h3 {
 }
 
 .builds {
+  position: absolute;
+  left: -300px;
+  transition: 1s;
   padding: 10px 20px 10px;
+}
+
+.releases {
+  margin-top: 10px;
+  padding: 10px 20px 10px;
+  position: absolute;
+  left: 500px;
+  transition: 1s;
 }
 
 .main {

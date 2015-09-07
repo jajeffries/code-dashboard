@@ -1,0 +1,20 @@
+<div id="releases">
+  <div id="title">
+    <span class='title'>Releases</span>
+  </div>
+  <ul id="release-list" class="list-nostyle">
+    <li class="release" data-foreach-item="releases">
+      <div class="project-title" data-bind-class="item.Status">
+      	<span class="label" data-bind="item.ProjectDisplayName"/>
+      </div>
+      <div>
+      	<span>Released: </span>
+      	<span class="value" data-bind="item.ReleaseDateFormatted"/>
+      </div>
+      <div>
+        <span class="label" data-bind="item.DaysSinceLastRelease"/>
+        <span> days ago.</span>
+      </div>
+    </li>
+  </ul>
+</div>
