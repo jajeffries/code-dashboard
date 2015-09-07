@@ -10,7 +10,7 @@ if MONGO_CONN
 
 	repository = MongoRepository.new(MONGO_CONN, 'production', 'release_tracking')
 
-	SCHEDULER.every '1m', :first_in => 0 do
+	SCHEDULER.every '15m', :first_in => 0 do
 		BOARD.each do | board |
 			
 			release_data = repository.get(board['_id'])
