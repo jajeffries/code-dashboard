@@ -2,17 +2,18 @@
 // Sass declarations
 // ----------------------------------------------------------------------------
 $background-color:  #12b0c5;
-$value-color:       #fff;
+$value-color:       #000;
 
-$title-color:       rgba(255, 255, 255, 0.7);
-$label-color:       rgba(255, 255, 255, 0.7);
-$moreinfo-color:    rgba(255, 255, 255, 0.7);
+$title-color:       rgba(0, 0, 0, 0.7);
+$label-color:       rgba(0, 0, 0, 0.7);
+$moreinfo-color:    rgba(0, 0, 0, 0.7);
 
 // ----------------------------------------------------------------------------
 // Widget-list styles
 // ----------------------------------------------------------------------------
 .widget-list {
 
+  position: relative;
   background-color: $background-color;
   vertical-align: top;
 
@@ -56,5 +57,25 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
   .more-info {
     color: $moreinfo-color;
   }
+
+  .increasing {
+    background-color: #66BB6A;
+    padding:0.2em;
+  }
+
+  .none {
+    background-color: #8ed3ee;
+    padding:0.2em;
+  }
+
+  .decreasing {
+    background-color: #d50000;
+    padding:0.2em;
+  }
+
+
+
+
+
 
 }
