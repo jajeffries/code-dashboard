@@ -1,8 +1,7 @@
 require_relative '../lib/MongoRepository'
 
 BOARD = [
-	{'_id' => 'HMV', 'event' => 'HMV-releases'},
-	{'_id' => '302', 'event' => '302-releases'}
+	{'_id' => 'HMV', 'event' => 'HMV-releases'}
 ]
 
 MONGO_CONN = ENV['MONGO_CONN']
@@ -15,9 +14,6 @@ if MONGO_CONN
 		BOARD.each do | board |
 			
 			release_data = repository.get(board['_id'])
-
-			puts 'test'
-			puts release_data
 
 			send_event(board['event'], {'releases' => release_data['Releases']})
 		end
