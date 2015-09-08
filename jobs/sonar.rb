@@ -40,7 +40,7 @@ if metrics.empty?
   abort("MISSING metrics configuration!")
 end
 
-def set_trends_and_values(dateIndex, metric)
+def set_trends_and_values(metric)
 
   value_is_greater = metric[:value] > metric[:previous_value]
   type_is_positive = metric[:type] == 'positive'
@@ -63,19 +63,51 @@ def set_trends_and_values(dateIndex, metric)
 
 end
 
+def retrieve_api_data(metrics, project, start_date)
+  key = project['project-id']
+
+  source = "http://sonarqube.dev/api/timemachine?resource=#{key}&metrics=#{metrics}&fromDateTime=#{start_date}"
+
+  resp = Net::HTTP.get_response(URI.parse(source))
+
+
+  data = resp.body
+  result = JSON.parse(data)
+
+  cells = result[0]['cells']
+
+end
+
+def collate_data_for_board(cells, data, metric_list)
+  dateIndex = 0
+  cells.each do |x|
+
+    index = 0
+    metricData = x["v"]
+    metric_list.each do |metric|
+
+
+      metric[:value] = metricData[index]
+      metric[:trend] = set_trends_and_values(metric) if metric[:value] != nil
+      if dateIndex == 0
+        metric[:previous_value] = metric[:value]
+      end
+      index = index + 1
+    end
+
+    dateIndex = dateIndex + 1
+
+  end
+
+  metric_list.each do |metric|
+    data << {:label => metric[:name], :value => metric[:value], :initialValue => metric[:previous_value], :trend => metric[:trend]}
+  end
+end
+
 SCHEDULER.every '6h', :first_in => 0 do |job|
   PROJECT.each do |project|
-    key = project['project-id']
 
-    source = "http://sonarqube.dev/api/timemachine?resource=#{key}&metrics=#{metrics}&fromDateTime=#{start_date}"
-
-    resp = Net::HTTP.get_response(URI.parse(source))
-
-
-    data = resp.body
-    result = JSON.parse(data)
-
-    cells = result[0]['cells']
+    cells = retrieve_api_data(metrics, project, start_date)
 
     data = []
 
@@ -88,32 +120,7 @@ SCHEDULER.every '6h', :first_in => 0 do |job|
         {name: 'Issues', value: 0, previous_value: 0, trend: 'none', type: 'negative'}
     ]
 
-
-    dateIndex = 0
-    cells.each do |x|
-
-      index = 0
-      metricData = x["v"]
-      metric_list.each do |metric|
-
-
-        metric[:value] = metricData[index]
-        metric[:trend] = set_trends_and_values(dateIndex, metric) if metric[:value] != nil
-        if dateIndex == 0
-          metric[:previous_value] = metric[:value]
-        end
-        index = index + 1
-      end
-
-      dateIndex = dateIndex + 1
-
-    end
-
-    metric_list.each do |metric|
-      data << {:label => metric[:name], :value => metric[:value], :initialValue => metric[:previous_value], :trend => metric[:trend]}
-    end
-
-    puts data
+    collate_data_for_board(cells, data, metric_list)
 
     send_event(project['project-id'], {'items' => data})
 
