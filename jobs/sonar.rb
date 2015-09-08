@@ -42,28 +42,24 @@ end
 
 def set_trends_and_values(dateIndex, metric)
 
+  value_is_greater = metric[:value] > metric[:previous_value]
+  type_is_positive = metric[:type] == 'positive'
+  values_equal = metric[:value] == metric[:previous_value]
 
-  if (metric['value'] > metric['previous_value'] && metric['type'] == "positive")
-    metric['trend'] = "increasing"
-  end
-  if (metric['value'] > metric['previous_value'] && metric['type'] == "negative")
-    metric['trend'] = "decreasing"
-  end
-
-  if (metric['value'] < metric['previous_value'] && metric['type'] == "positive")
-    metric['trend'] = "decreasing"
-  end
-  if (metric['value'] < metric['previous_value'] && metric['type'] == "negative")
-    metric['trend'] = "increasing"
+  if values_equal
+    trend = 'none'
+    return trend
   end
 
-  if (metric['value'] == metric['previous_value'])
-    metric['trend'] = "none"
+  trend_should_be_increasing = value_is_greater && type_is_positive || !value_is_greater && !type_is_positive
+
+  if trend_should_be_increasing
+    trend = 'increasing'
+  elsif !trend_should_be_increasing
+    trend = 'decreasing'
   end
 
-  if (dateIndex == 0)
-    metric['previous_value'] = metric['value']
-  end
+  return trend
 
 end
 
@@ -79,17 +75,17 @@ SCHEDULER.every '6h', :first_in => 0 do |job|
     data = resp.body
     result = JSON.parse(data)
 
-    cells = result[0]["cells"]
+    cells = result[0]['cells']
 
     data = []
 
-    METRICLIST = [
-        {'name' => "Number of Tests", 'value' => 0, 'previous_value' => 0, 'trend' => "none", 'type' => "positive"},
-        {'name' => "Test Coverage %", 'value' => 0, 'previous_value' => 0, 'trend' => "none", 'type' => "positive"},
-        {'name' => "Number of Duplicated Blocks", 'value' => 0, 'previous_value' => 0, 'trend' => "none", 'type' => "negative"},
-        {'name' => "Number Of Lines", 'value' => 0, 'previous_value' => 0, 'trend' => "none", 'type' => "neutral"},
-        {'name' => "Tech Debt", 'value' => 0, 'previous_value' => 0, 'trend' => "none", 'type' => "negative"},
-        {'name' => "Issues", 'value' => 0, 'previous_value' => 0, 'trend' => "none", 'type' => "negative"}
+    metric_list = [
+        {name: 'Number of Tests', value: 0, previous_value: 0, trend: 'none', type: 'positive'},
+        {name: 'Test Coverage %', value: 0, previous_value: 0, trend: 'none', type: 'positive'},
+        {name: 'Duplicated Blocks', value: 0, previous_value: 0, trend: 'none', type: 'negative'},
+        {name: 'Number of Lines', value: 0, previous_value: 0, trend: 'none', type: 'neutral'},
+        {name: 'Tech Debt', value: 0, previous_value: 0, trend: 'none', type: 'negative'},
+        {name: 'Issues', value: 0, previous_value: 0, trend: 'none', type: 'negative'}
     ]
 
 
@@ -98,19 +94,23 @@ SCHEDULER.every '6h', :first_in => 0 do |job|
 
       index = 0
       metricData = x["v"]
-      METRICLIST.each do |metric|
-        metric['value'] = metricData[index]
-        set_trends_and_values(dateIndex, metric) if metric['value'] != nil
+      metric_list.each do |metric|
 
+
+        metric[:value] = metricData[index]
+        metric[:trend] = set_trends_and_values(dateIndex, metric) if metric[:value] != nil
+        if dateIndex == 0
+          metric[:previous_value] = metric[:value]
+        end
+        index = index + 1
       end
 
       dateIndex = dateIndex + 1
 
-
     end
 
-    METRICLIST.each do |metric|
-      data << {:label => metric['name'], :value => metric['value'], :initialValue => metric['previous_value'], :trend => metric['trend']}
+    metric_list.each do |metric|
+      data << {:label => metric[:name], :value => metric[:value], :initialValue => metric[:previous_value], :trend => metric[:trend]}
     end
 
     puts data
