@@ -2,43 +2,12 @@ require 'net/http'
 require 'json'
 require 'openssl'
 require 'uri'
+require 'date'
 
-def setTrend(type, metric)
+PROJECTS = %w(ChesterZoo:Website Oxfam:Web)
+METRICS = (%w(tests coverage duplicated_blocks ncloc sqale_index violations)).join(",")
+start_date = DateTime.now - 7
 
-end
-
-
-PROJECT = [
-    {'_id' => 'OdinsRavens', 'project-id' => 'ChesterZoo:Website'},
-    {'_id' => 'FOXHOUND', 'project-id' => 'Amnesty:Website'},
-    {'_id' => 'OdinsRavens', 'project-id' => 'DWF:Website'},
-    {'_id' => 'OdinsRavens', 'project-id' => 'Oxfam:Web'}
-]
-
-config_path = File.expand_path(File.join(File.dirname(__FILE__), "sonar.cfg"))
-
-start_date = "2015-09-01T00:00:00+0100"
-
-# Configuration
-configuration = Hash[File.read(config_path).scan(/(\S+)\s*=\s*"([^"]+)/)]
-server = "#{configuration['server']}".strip
-id = "#{configuration['id']}".strip
-metrics = "#{configuration['metrics']}".strip
-interval = "#{configuration['interval']}".strip
-
-if id.empty?
-  abort("MISSING widget id configuration!")
-end
-if interval.empty?
-  abort("MISSING interval configuration!")
-end
-if server.empty?
-  abort("MISSING server configuration!")
-end
-
-if metrics.empty?
-  abort("MISSING metrics configuration!")
-end
 
 def set_trends_and_values(metric)
 
@@ -64,8 +33,7 @@ def set_trends_and_values(metric)
 end
 
 def retrieve_api_data(metrics, project, start_date)
-  key = project['project-id']
-
+  key = project
   source = "http://sonarqube.dev/api/timemachine?resource=#{key}&metrics=#{metrics}&fromDateTime=#{start_date}"
 
   resp = Net::HTTP.get_response(URI.parse(source))
@@ -105,9 +73,9 @@ def collate_data_for_board(cells, data, metric_list)
 end
 
 SCHEDULER.every '6h', :first_in => 0 do |job|
-  PROJECT.each do |project|
+  PROJECTS.each do |project|
 
-    cells = retrieve_api_data(metrics, project, start_date)
+    cells = retrieve_api_data(METRICS, project, start_date)
 
     data = []
 
@@ -122,7 +90,9 @@ SCHEDULER.every '6h', :first_in => 0 do |job|
 
     collate_data_for_board(cells, data, metric_list)
 
-    send_event(project['project-id'], {'items' => data})
+    puts data
+
+    send_event(project, {'items' => data})
 
   end
 
