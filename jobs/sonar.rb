@@ -4,7 +4,7 @@ require 'openssl'
 require 'uri'
 require 'date'
 
-PROJECTS = %w(ChesterZoo:Website Oxfam:Web)
+PROJECTS = %w(ChesterZoo:Website)
 METRICS = (%w(tests coverage duplicated_blocks ncloc sqale_index violations)).join(",")
 start_date = DateTime.now - 7
 
@@ -68,11 +68,11 @@ def collate_data_for_board(cells, data, metric_list)
   end
 
   metric_list.each do |metric|
-    data << {:label => metric[:name], :value => metric[:value], :initialValue => metric[:previous_value], :trend => metric[:trend]}
+    data << {:label => metric[:name], :sonar_id => metric[:sonar_id], :value => metric[:value], :initialValue => metric[:previous_value], :trend => metric[:trend]}
   end
 end
 
-SCHEDULER.every '6h', :first_in => 0 do |job|
+SCHEDULER.every '1h', :first_in => 0 do |job|
   PROJECTS.each do |project|
 
     cells = retrieve_api_data(METRICS, project, start_date)
@@ -80,17 +80,23 @@ SCHEDULER.every '6h', :first_in => 0 do |job|
     data = []
 
     metric_list = [
-        {name: 'Number of Tests', value: 0, previous_value: 0, trend: 'none', type: 'positive'},
-        {name: 'Test Coverage %', value: 0, previous_value: 0, trend: 'none', type: 'positive'},
-        {name: 'Duplicated Blocks', value: 0, previous_value: 0, trend: 'none', type: 'negative'},
-        {name: 'Number of Lines', value: 0, previous_value: 0, trend: 'none', type: 'neutral'},
-        {name: 'Tech Debt', value: 0, previous_value: 0, trend: 'none', type: 'negative'},
-        {name: 'Issues', value: 0, previous_value: 0, trend: 'none', type: 'negative'}
+        {name: 'Number of Tests', sonar_id: 'tests', value: 0, previous_value: 0, trend: 'none', type: 'positive'},
+        {name: 'Test Coverage %', sonar_id: 'coverage', value: 0, previous_value: 0, trend: 'none', type: 'positive'},
+        {name: 'Duplicated Blocks', sonar_id: 'duplicated_blocks', value: 0, previous_value: 0, trend: 'none', type: 'negative'},
+        {name: 'Number of Lines', sonar_id: 'ncloc', value: 0, previous_value: 0, trend: 'none', type: 'neutral'},
+        {name: 'Tech Debt', sonar_id: 'sqale_index', value: 0, previous_value: 0, trend: 'none', type: 'negative'},
+        {name: 'Issues', sonar_id: 'violations', value: 0, previous_value: 0, trend: 'none', type: 'negative'}
     ]
 
     collate_data_for_board(cells, data, metric_list)
 
-    puts data
+    data.each do |m|
+      puts m[:sonar_id]
+      puts m[:initialValue]
+      puts m[:value]
+      puts m[:trend]
+      send_event(project + ':' + m[:sonar_id], {current: m[:value], last: m[:initialValue], status: m[:trend]})
+    end
 
     send_event(project, {'items' => data})
 
