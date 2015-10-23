@@ -1,5 +1,5 @@
 <% content_for :title do %>Oxfam App Performance<% end %>
-<div class="gridster">
+<!--<div class="gridster">
   <ul>
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
 	  	<div>
@@ -41,4 +41,100 @@
 	  	</div>
     </li>
   </ul>
+</div>-->
+
+<% content_for :title do %>Odin's Ravens<% end %>
+<div class="grid clearfix">
+  <div class="col col-1">
+    <div class="builds">
+      <div class="team-title">Oxfam - Build Status</div>
+        <div data-id="ogb-website-builds" data-view="Builds" data-title="Oxfam Website (develop)" data-project="OxfamGbWebsite" data-branch="develop"></div>
+        <div data-id="ogb-website-releases" data-view="Builds" data-title="Oxfam Website (Sitecore 7.5 Upgrade)" data-project="OxfamGbWebsiteReleases" data-branch="Sitecore_7.5_Upgrade_Release"></div>
+        <div data-id="ogb-authentication-builds" data-view="Builds" data-title="Oxfam Authentication" data-project="OxfamGbAuthentication" data-branch="develop"></div>
+        <div data-id="ogb-community-builds" data-view="Builds" data-title="Oxfam Community" data-project="OxfamGbCommunity" data-branch="develop"></div>
+      </div>
+      <div class="builds display-block"></div>
+      <div class="builds display-block">
+        <h2 class="team-title">Apdex Score</h2>
+        <iframe src="https://rpm.newrelic.com/public/charts/g6jBGYQbXpf" width="300" height="160" scrolling="no" frameborder="no"></iframe>
+        <h2 class="team-title">Error Rate</h2>
+        <iframe src="https://rpm.newrelic.com/public/charts/2HWau67xTXK" width="300" height="160" scrolling="no" frameborder="no"></iframe>
+      </div>
+    </div>
+    <div class="main col col-2">
+      <div class="main-container">
+        <div class="display-block cycle-times clearfix">
+          <h2 class="display-block__title display-block__title--cycle">App Performance by Host</h2>
+          <div class="display-block__content clearfix">
+            <div class="col inner-col-third">
+              <div data-title="App Response Time">
+                <iframe src="https://rpm.newrelic.com/public/charts/8EV3Tws7xjH" width="610" height="250" scrolling="no" frameborder="no"></iframe>
+              </div>
+            </div>
+            <div class="col inner-col-third">
+              <div data-title="Response Time by Host">
+                    <iframe src="https://rpm.newrelic.com/public/charts/aC98VAwkr78" width="610" height="250" scrolling="no" frameborder="no"></iframe>
+                  
+              </div>
+            </div>
+            <div class="col inner-col-third">
+              <iframe src="https://rpm.newrelic.com/public/charts/dMj8HwAane8" width="610" height="250" scrolling="no" frameborder="no"></iframe>
+            </div>
+        </div>
+      </div>
+
+
+      <div class="display-block velocity clearfix">
+        
+        <div class="display-block__content">
+          <div class="col inner-col-1">
+          <h2 class="display-block__title display-block__title--velocity">RGAPP231V</h2>
+            <div class="col inner-col-half">
+              <div data-title="Average Velocity" >
+                  <iframe src="https://rpm.newrelic.com/public/charts/cbkqtooDkyH" width="250" height="160" scrolling="no" frameborder="no"></iframe>
+              </div>
+            </div>
+            <div class="col inner-col-half">
+              <div data-title="Average Velocity" >
+                  <iframe src="https://rpm.newrelic.com/public/charts/8KGVIRFDAKu" width="250" height="160" scrolling="no" frameborder="no"></iframe>
+              </div>
+            </div>
+            <div class="col inner-col-half">
+              <div data-title="Average Velocity" >
+                  <iframe src="https://rpm.newrelic.com/public/charts/evhXWXwc2bm" width="250" height="160" scrolling="no" frameborder="no"></iframe>
+              </div>
+            </div>
+            <div class="col inner-col-half">
+              <div data-title="Error Rate">
+                  <iframe src="https://rpm.newrelic.com/public/charts/3qkX7qA1x3c" width="250" height="160" scrolling="no" frameborder="no"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="col inner-col-1">
+            <h2 class="display-block__title display-block__title--velocity">PRAPP413V</h2>
+            <div class="col inner-col-half">
+              <div data-title="Average Velocity" >
+                  <iframe src="https://rpm.newrelic.com/public/charts/8FhU9rhYbmb" width="250" height="160" scrolling="no" frameborder="no"></iframe>
+              </div>
+            </div>
+            <div class="col inner-col-half">
+              <div data-title="Average Velocity" >
+                  <iframe src="https://rpm.newrelic.com/public/charts/c2oVCsQTWFJ" width="250" height="160" scrolling="no" frameborder="no"></iframe>
+              </div>
+            </div>
+            <div class="col inner-col-half">
+              <div data-title="Average Velocity" >
+                  <iframe src="https://rpm.newrelic.com/public/charts/e59TTGzdGE3" width="250" height="160" scrolling="no" frameborder="no"></iframe>
+              </div>
+            </div>
+            <div class="col inner-col-half">
+              <div data-title="Error Rate">
+                  <iframe src="https://rpm.newrelic.com/public/charts/4co1YrWVACi" width="250" height="160" scrolling="no" frameborder="no"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -58,18 +58,34 @@ $text-danger-color: #fff;
 // Base styles
 // ----------------------------------------------------------------------------
 html {
+  height: 100%;
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
 
 body {
+  height: 100%;
   margin: 0;
   background-color: $background-color;
   font-size: 16px;
   color: $text-color;
   font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
   overflow: hidden;
+
+  #container {
+    height: 100%;
+
+    .grid {
+      height: 100%;
+
+      .main {
+        height: 100%;
+      }
+    }
+
+  }
+
 }
 
 b, strong {
@@ -169,6 +185,7 @@ h3 {
   height: 1px;
 }
 .col-2 {
+  height: 100%;
   position: relative;
   width: 80%;
 }
@@ -203,13 +220,14 @@ h3 {
 }
 
 .main-container {
+  height: 100%;
   padding: 10px 20px 20px;
   background: #eee;
 }
 
 .builds {
   position: absolute;
-  left: -350px;
+  left: -400px;
   transition: 1s;
   padding: 10px 20px 10px;
 }
