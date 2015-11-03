@@ -1,5 +1,6 @@
-<% content_for :title do %>Chester Zoo Statistics<% end %>
-<div class="gridster">
+<% content_for :title do %>Chester Zoo Servers<% end %>
+<!--Commenting this out now as can't run on heroku -->
+<!--<div class="gridster">
   <ul>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="ChesterZoo:Website:coverage" data-view="Number" data-title="Coverage" data-suffix="%" status="none"></div>
@@ -20,4 +21,68 @@
       <div data-id="ChesterZoo:Website:violations" data-view="Number" data-title="Issues"></div>
     </li>
   </ul>
+</div>-->
+
+<div class="grid clearfix">
+    <div class="col col-1">
+      <div class="builds">
+        <div class="team-title">Chester Zoo - Server Status</div>
+      </div>
+    </div>
+    <div class="main col col-2">
+      <div class="main-container">
+        
+      <div class="display-block velocity clearfix">
+        
+        <div class="display-block__content">
+          <div class="col inner-col-1">
+          <h2 class="display-block__title display-block__title--velocity">CZE-WEBDB-01</h2>
+            <div class="col inner-col">
+              <div data-title="Average Velocity" >
+                  <iframe src="https://rpm.newrelic.com/public/charts/f9EiYRDr7Gc" width="500" height="200" scrolling="no" frameborder="no"></iframe>
+              </div>
+            </div>
+            <div class="col inner-col">
+              <div data-title="Average Velocity" >
+                  <iframe src="https://rpm.newrelic.com/public/charts/jDrSDqq4Zpo" width="500" height="200" scrolling="no" frameborder="no"></iframe>
+              </div>
+            </div>
+            <div class="col inner-col">
+              <div data-title="Average Velocity" >
+                  <iframe src="https://rpm.newrelic.com/public/charts/aDzoIM9qS90" width="500" height="200" scrolling="no" frameborder="no"></iframe>
+              </div>
+            </div>
+            <div class="col inner-col">
+              <div data-title="Error Rate">
+                  <iframe src="https://rpm.newrelic.com/public/charts/34znaWfil6b" width="500" height="200" scrolling="no" frameborder="no"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="col inner-col-1">
+            <h2 class="display-block__title display-block__title--velocity">CZE-WEBDB-02</h2>
+            <div class="col inner-col-half">
+              <div data-title="Average Velocity" >
+                  
+              </div>
+            </div>
+            <div class="col inner-col-half">
+              <div data-title="Average Velocity" >
+                  
+              </div>
+            </div>
+            <div class="col inner-col-half">
+              <div data-title="Average Velocity" >
+                  
+              </div>
+            </div>
+            <div class="col inner-col-half">
+              <div data-title="Error Rate">
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
